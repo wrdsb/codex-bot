@@ -26,7 +26,17 @@ bot.localePath(path.join(__dirname, './locale'));
 bot.set('storage', tableStorage);
 
 bot.dialog('/', function (session) {
-    session.send('You said ' + session.message.text);
+    switch(session.message.text) {
+        case 'employee':
+            session.send('Fetch an employee. Roger that.');
+            break;
+        case 'group':
+            session.send('Fetch an group. Roger that.');
+            break;
+        default:
+            session.send('You said ' + session.message.text);
+            break;
+    }
 });
 
 if (useEmulator) {
